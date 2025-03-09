@@ -6,6 +6,7 @@
 - Set up a .env file with your Gemini API key.
 - Install dependencies by running:
   bash
+  -solidity
   pip install -r requirements.txt
 
 ## Features
