@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartScript</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{url_for('static', filename='js/land.js')}}"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="./land.html">SmartScript</a>
+            </div>
+            <div class="anchors">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="https://github.com/">Github</a></li>
+                </ul>
+            </div>
+            <div class="sign">
+                <button id="signup"><a href="{{ url_for('static', filename='templates/log-in.html') }}">Sign-Up</a></button>
+                <button id="login"><a href="{{ url_for('static', filename='templates/log-in.html') }}">Log-In</a></button>
+            </div>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <div id="centre" class="centre">
+            <div class="centre-moon">
+                <img src="{{ url_for('static', filename='images/ellipse.png') }}" alt="Ellipse">
+            </div>
+            <div class="centre-content">
+                <h2>Your One-Tap PDF Analyser</h2>
+                <h3>Extract. Analyse. Empower.</h3>
+                <button id="analyse" onclick="analyse()">Start Analysing</button>
+            </div>
+        </div>
+        <div class="below">
+            <img class="laptop left" src="{{ url_for('static', filename='images/laptop.png') }}" alt="LAPTOP">
+            <img class="laptop right" src="{{ url_for('static', filename='images/laptop.png') }}" alt="LAPTOP">
+            <img class="mountain" src="{{ url_for('static', filename='images/below.jpg') }}" alt="Mountain Gig bottom">
+        </div>
+
+        <div id="book-entire">
+            <button id="prev-btn"><img src="{{ url_for('static', filename='images/prev-btn.png') }}" alt="Previous"></button>
+            <div id="book" class="book">
+                <div id="p1" class="paper">
+                    <div class="front" style="border: none;">
+                        <div id="f1" class="front-content">
+                            <img src="{{ url_for('static', filename='images/cover-page.jpg') }}" alt="Cover page">
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b1" class="back-content">
+                            <div class="upload-container">
+                                <input type="file" id="fileInput" multiple hidden>
+                                <div id="drop-area" class="drop-area">
+                                    <img src="{{ url_for('static', filename='images/Cloud.png') }}" alt="Cloud">
+                                    <p>Drag & Drop files here or <br><br><span id="browse-btn">Browse</span><br><br><br><span style="color: red;">File should not exceed 200 MB</span></p>
+                                </div>
+                                <div id="file-list" class="file-list"></div>
+                            </div>
+                            <div class="prompt-btns">
+                                <div class="collect-prompt">
+                                    <input type="text" id="promptInput" placeholder="Type A Prompt">
+                                    <img src="{{ url_for('static', filename='images/send.png') }}" alt="Send">
+                                </div>
+                                <div class="butns">
+                                    <button onclick="setPrompt('Explore Topics')">Summarize</button>
+                                    <button onclick="setPrompt('Generate Questionnaire')">Key Points</button>
+                                    <button onclick="setPrompt('Collect Formulas')">Generate Title</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content">
+                            <div class="output">
+                                <p id="responseText"></p>
+                            </div>
+                            <button onclick="claimReward()">Claim Reward</button>
+                            <button onclick="getStreak()">Check Streak</button>
+                            <button onclick="getRewardBalance()">Check Reward Balance</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="next-btn"><img src="{{ url_for('static', filename='images/next-btn.png') }}" alt="Next"></button>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="left-about">
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li><span class="reason">Quality You Can Trust –</span> High-performance security solutions.</li>
+                <li><span class="reason">Comprehensive Services –</span> Expert repair and maintenance.</li>
+                <li><span class="reason">Flexible Rental Solutions –</span> Short-term device rentals.</li>
+                <li><span class="reason">Nationwide Coverage –</span> Services across India.</li>
+                <li><span class="reason">Customer-Centric Approach –</span> Personalized solutions.</li>
+            </ul>
+        </div>
+        <div class="right-about">
+            <div class="up">
+                <p>We provide top-quality security solutions. Our expertise ensures seamless communication and protection.</p>
+            </div>
+            <div class="down">
+                <div class="owner-bio">
+                    <img src="./images/Eagar.jpg" alt="Owner">
+                    <h4>Mr. Anupam Nandi</h4>
+                </div>
+                <div class="owner-info">
+                    <p>With 30 years in telecommunications, Anupam Nandi has worked with Philips and Webel, ensuring high-quality security solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+</html>

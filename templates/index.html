@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartScript</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>SmartScript - AI Document Analyzer</h1>
+
+    <input type="file" id="fileUpload" accept="image/*" onchange="previewImage()">
+    <input type="text" id="promptInput" placeholder="Ask a question about the document">
+    <button onclick="processDocument()">Analyze</button>
+
+    <h3>Quick Prompts:</h3>
+    <button onclick="setPrompt('Explore Topics')">Summarize</button>
+    <button onclick="setPrompt('Generate Questionnaire')">Key Points</button>
+    <button onclick="setPrompt('Collect Formulas')">Generate Title</button>
+
+    <h2>Preview:</h2>
+    <img id="previewImage" style="max-width: 300px; display: none; border: 2px solid #000; border-radius: 10px;">
+
+    <h2>Response:</h2>
+    <p id="responseText"></p>
+
+    <hr>
+
+    <h3>Blockchain Rewards</h3>
+    <button onclick="claimReward()">Claim Reward</button>
+    <button onclick="getStreak()">Check Streak</button>
+    <button onclick="getRewardBalance()">Check Reward Balance</button>
+
+    <p id="streakDisplay">Streak: Loading...</p>
+    <p id="rewardBalanceDisplay">Reward Balance: Loading...</p>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        function setPrompt(promptText) {
+            document.getElementById("promptInput").value = promptText;
+        }
+
+        function previewImage() {
+            let fileInput = document.getElementById("fileUpload").files[0];
+            if (!fileInput) {
+                return;
+            }
+
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                let imgElement = document.getElementById("previewImage");
+                imgElement.src = e.target.result;
+                imgElement.style.display = "block";
+            };
+
+            reader.readAsDataURL(fileInput);
+        }
+    </script>
+
+</body>
+</html>
